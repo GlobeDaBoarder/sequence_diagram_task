@@ -10,11 +10,18 @@ public class Customer {
         this.username = username;
         this.password = password;
         this.name = name;
-        this.shoppingCart = createShoppingCart();
+        this.shoppingCart = null;
     }
 
-    public ShoppingCart createShoppingCart(){
-        System.out.println("Cart is created!");
-        return new ShoppingCart();
+    public void createShoppingCart(){
+        this.shoppingCart = new ShoppingCart();
+    }
+
+    public ProductPage openProductPage(Product product){
+        return new ProductPage(product);
+    }
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
     }
 }

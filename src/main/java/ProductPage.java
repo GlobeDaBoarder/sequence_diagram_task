@@ -1,17 +1,17 @@
 public class ProductPage {
-    private int productId;
-    private String productName;
-    private String productDescr;
-    private double price;
-    private int quantity;
+    private Product product;
 
-    public ProductPage(int productId, String productName, String productDescr, double price, int quantity) {
-        this.productId = productId;
-        this.productName = productName;
-        this.productDescr = productDescr;
-        this.price = price;
-        this.quantity = quantity;
+    public ProductPage(Product product) {
+        System.out.println("opening product page...");
+        this.product = product;
     }
 
-    public void addToCart
+    public void addToCart(ShoppingCart shoppingCart){
+        shoppingCart.add(this.product);
+    }
+
+    public ShoppingCart openShoppingCart(Customer customer){
+        System.out.println("opening shopping cart");
+        return customer.getShoppingCart();
+    }
 }
